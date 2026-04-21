@@ -14,102 +14,51 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
-
-.header{
-  display:flex;align-items:center;gap:14px;padding:14px 22px;
-  border-bottom:1px solid var(--border);flex-shrink:0;
-  background:linear-gradient(90deg,rgba(167,25,48,.12) 0%,transparent 50%);
-}
-.logo{
-  width:38px;height:38px;background:var(--red);border-radius:7px;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;font-size:18px;flex-shrink:0;
-  box-shadow:0 0 14px rgba(167,25,48,.5);
-}
+.header{display:flex;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid var(--border);flex-shrink:0;background:linear-gradient(90deg,rgba(167,25,48,.12) 0%,transparent 50%);}
+.logo{width:38px;height:38px;background:var(--red);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;flex-shrink:0;box-shadow:0 0 14px rgba(167,25,48,.5);}
 .htitle{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:2px;}
 .hsub{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
 .hstatus{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);}
 .dot{width:7px;height:7px;border-radius:50%;background:#2ecc71;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,.4)}50%{box-shadow:0 0 0 4px rgba(46,204,113,0)}}
-
 .tabs{display:flex;gap:2px;padding:0 22px;border-bottom:1px solid var(--border);flex-shrink:0;}
-.tab{
-  padding:10px 18px;font-size:13px;color:var(--muted);cursor:pointer;
-  border-bottom:2px solid transparent;transition:all .2s;
-}
+.tab{padding:10px 18px;font-size:13px;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;}
 .tab:hover{color:var(--text);}
 .tab.active{color:var(--text);border-bottom-color:var(--red);}
-
 .content{flex:1;overflow:hidden;display:flex;flex-direction:column;}
 .panel{display:none;flex:1;flex-direction:column;overflow:hidden;padding:18px 22px;}
 .panel.active{display:flex;}
-
 .msgs{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding-right:4px;}
 .msgs::-webkit-scrollbar{width:3px;}
 .msgs::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:2px;}
-
 .msg{display:flex;gap:10px;max-width:90%;}
 .msg.user{align-self:flex-end;flex-direction:row-reverse;}
-.av{
-  width:30px;height:30px;border-radius:7px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;font-size:13px;
-  background:var(--surface2);border:1px solid var(--border);
-}
+.av{width:30px;height:30px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--surface2);border:1px solid var(--border);}
 .msg.agent .av{background:var(--red);border-color:var(--red);}
-.bub{
-  background:var(--surface2);border:1px solid var(--border);
-  border-radius:10px;padding:10px 14px;font-size:13.5px;line-height:1.65;
-  word-break:break-word;
-}
+.bub{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:13.5px;line-height:1.65;word-break:break-word;}
 .msg.user .bub{background:var(--red-dark);border-color:var(--border-red);}
 .bub p{margin:0;}.bub p+p{margin-top:6px;}
 .bub strong{color:#f0a0a0;font-weight:600;}
 .bub ul{padding-left:14px;margin:5px 0;}
 .bub li{margin:3px 0;color:var(--muted);font-size:13px;}
-.bub em{color:var(--muted);font-style:normal;}
-
 .typing{display:flex;align-items:center;gap:4px;padding:10px 14px;}
 .typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:bounce 1.2s infinite;}
 .typing span:nth-child(2){animation-delay:.2s;}
 .typing span:nth-child(3){animation-delay:.4s;}
 @keyframes bounce{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
-
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 0;flex-shrink:0;}
-.chip{
-  background:var(--surface2);border:1px solid var(--border);
-  border-radius:20px;padding:5px 12px;font-size:12px;cursor:pointer;
-  color:var(--muted);transition:all .2s;font-family:'DM Sans',sans-serif;
-}
+.chip{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:12px;cursor:pointer;color:var(--muted);transition:all .2s;font-family:'DM Sans',sans-serif;}
 .chip:hover{border-color:var(--red);color:var(--text);}
-
 .irow{display:flex;gap:8px;align-items:flex-end;margin-top:10px;flex-shrink:0;padding-top:12px;border-top:1px solid var(--border);}
-.inp{
-  flex:1;background:var(--surface);border:1px solid var(--border);
-  border-radius:9px;padding:10px 14px;color:var(--text);
-  font-family:'DM Sans',sans-serif;font-size:14px;resize:none;
-  min-height:42px;max-height:100px;line-height:1.5;transition:border-color .2s;
-}
+.inp{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:10px 14px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;resize:none;min-height:42px;max-height:100px;line-height:1.5;transition:border-color .2s;}
 .inp:focus{outline:none;border-color:var(--red);}
 .inp::placeholder{color:var(--muted);}
-.sbtn{
-  width:42px;height:42px;background:var(--red);border:none;
-  border-radius:9px;cursor:pointer;color:white;font-size:16px;
-  display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;
-}
+.sbtn{width:42px;height:42px;background:var(--red);border:none;border-radius:9px;cursor:pointer;color:white;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;}
 .sbtn:hover{background:var(--red-dark);}
 .sbtn:disabled{opacity:.4;cursor:default;}
-.full-btn{
-  flex:1;background:var(--red);border:none;border-radius:9px;
-  padding:11px;color:white;font-family:'DM Sans',sans-serif;
-  font-size:14px;font-weight:600;cursor:pointer;transition:background .2s;
-}
+.full-btn{flex:1;background:var(--red);border:none;border-radius:9px;padding:11px;color:white;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;}
 .full-btn:hover{background:var(--red-dark);}
-
-#loader{
-  position:fixed;inset:0;background:var(--black);
-  display:flex;align-items:center;justify-content:center;
-  flex-direction:column;gap:14px;z-index:999;transition:opacity .4s;
-}
+#loader{position:fixed;inset:0;background:var(--black);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:999;transition:opacity .4s;}
 .ll{font-family:'Bebas Neue',sans-serif;font-size:58px;color:var(--red);letter-spacing:5px;animation:glow 1.4s ease-in-out infinite alternate;}
 @keyframes glow{from{text-shadow:0 0 8px rgba(167,25,48,.3)}to{text-shadow:0 0 28px rgba(167,25,48,.8)}}
 .lb{width:160px;height:2px;background:var(--surface3);border-radius:1px;overflow:hidden;}
@@ -119,13 +68,11 @@ body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;
 </style>
 </head>
 <body>
-
 <div id="loader">
   <div class="ll">ATL</div>
   <div class="lb"><div class="lf"></div></div>
   <div class="lt">Falcons Intelligence</div>
 </div>
-
 <div class="header">
   <div class="logo">ATL</div>
   <div>
@@ -134,24 +81,20 @@ body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;
   </div>
   <div class="hstatus"><div class="dot"></div> Agente ativo</div>
 </div>
-
 <div class="tabs">
   <div class="tab active" onclick="switchTab('chat',this)">💬 Chat</div>
   <div class="tab" onclick="switchTab('news',this)">📰 Notícias</div>
   <div class="tab" onclick="switchTab('prog',this)">🏈 Prognóstico</div>
   <div class="tab" onclick="switchTab('analysis',this)">📊 Análise</div>
 </div>
-
 <div class="content">
-
-  <!-- CHAT -->
   <div class="panel active" id="panel-chat">
     <div class="msgs" id="chat-msgs">
       <div class="msg agent">
         <div class="av">🦅</div>
         <div class="bub">
-          <p>Fala! Sou o <strong>Agente Falcons</strong> — especialista no Atlanta Falcons com busca em tempo real na internet.</p>
-          <p>Posso trazer notícias frescas, analisar jogadores, fazer prognósticos e responder qualquer coisa sobre o time. O que você quer saber?</p>
+          <p>Fala! Sou o <strong>Agente Falcons</strong> — especialista no Atlanta Falcons com busca em tempo real.</p>
+          <p>Posso trazer notícias, analisar jogadores, fazer prognósticos e responder qualquer coisa sobre o time. O que você quer saber?</p>
         </div>
       </div>
     </div>
@@ -168,26 +111,22 @@ body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;
       <button class="sbtn" id="chat-btn" onclick="sendChat()">➤</button>
     </div>
   </div>
-
-  <!-- NOTÍCIAS -->
   <div class="panel" id="panel-news">
     <div class="msgs" id="news-msgs">
       <div class="msg agent">
         <div class="av">🦅</div>
-        <div class="bub"><p>Clique em <strong>Buscar agora</strong> para eu pesquisar as últimas notícias dos Falcons em tempo real.</p></div>
+        <div class="bub"><p>Clique em <strong>Buscar agora</strong> para pesquisar as últimas notícias dos Falcons em tempo real.</p></div>
       </div>
     </div>
     <div class="irow">
       <button class="full-btn" onclick="fetchNews()">↻ Buscar notícias agora</button>
     </div>
   </div>
-
-  <!-- PROGNÓSTICO -->
   <div class="panel" id="panel-prog">
     <div class="msgs" id="prog-msgs">
       <div class="msg agent">
         <div class="av">🦅</div>
-        <div class="bub"><p>Digite o adversário abaixo e gero um prognóstico completo: análise de matchup, pontos fortes e fracos, fatores decisivos e previsão de placar.</p></div>
+        <div class="bub"><p>Digite o adversário e gero um prognóstico completo com análise de matchup, fatores decisivos e previsão de placar.</p></div>
       </div>
     </div>
     <div class="chips">
@@ -197,13 +136,11 @@ body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;
       <div class="chip" onclick="askProg('Philadelphia Eagles')">vs Eagles</div>
     </div>
     <div class="irow">
-      <input class="inp" id="prog-inp" style="min-height:42px;max-height:42px" placeholder="Ex: Dallas Cowboys, Green Bay Packers..."
+      <input class="inp" id="prog-inp" style="min-height:42px;max-height:42px" placeholder="Ex: Dallas Cowboys..."
         onkeydown="if(event.key==='Enter')sendProg()">
       <button class="sbtn" onclick="sendProg()">➤</button>
     </div>
   </div>
-
-  <!-- ANÁLISE -->
   <div class="panel" id="panel-analysis">
     <div class="msgs" id="analysis-msgs">
       <div class="msg agent">
@@ -212,11 +149,11 @@ body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;
       </div>
     </div>
     <div class="chips">
-      <div class="chip" onclick="askAnalysis('Análise completa da defesa dos Atlanta Falcons: pontos fortes, fracos e comparação com a liga')">Defesa</div>
+      <div class="chip" onclick="askAnalysis('Análise completa da defesa dos Atlanta Falcons')">Defesa</div>
       <div class="chip" onclick="askAnalysis('Análise do QB Michael Penix Jr: estilo, estatísticas e perspectivas')">Penix Jr.</div>
-      <div class="chip" onclick="askAnalysis('Linha ofensiva dos Falcons: quais são os pontos de melhoria?')">Linha ofensiva</div>
-      <div class="chip" onclick="askAnalysis('Perspectivas dos Falcons no draft 2025: quais posições precisam de reforço?')">Draft 2025</div>
-      <div class="chip" onclick="askAnalysis('Análise do sistema tático do técnico Raheem Morris')">Tática Morris</div>
+      <div class="chip" onclick="askAnalysis('Linha ofensiva dos Falcons: pontos de melhoria')">Linha ofensiva</div>
+      <div class="chip" onclick="askAnalysis('Perspectivas dos Falcons no draft 2025')">Draft 2025</div>
+      <div class="chip" onclick="askAnalysis('Sistema tático do técnico Raheem Morris')">Tática Morris</div>
     </div>
     <div class="irow">
       <textarea class="inp" id="analysis-inp" placeholder="Peça qualquer análise sobre os Falcons..." rows="1"
@@ -225,14 +162,11 @@ body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;
       <button class="sbtn" onclick="sendAnalysis()">➤</button>
     </div>
   </div>
-
 </div>
-
 <script>
 var SYSTEM = 'Você é o Agente Falcons Intelligence, especialista absoluto no Atlanta Falcons da NFL. ' +
-  'Busque informações em tempo real — notícias, estatísticas, lesões, transações, redes sociais. ' +
-  'Ao analisar jogos, considere: desempenho recente, injury report, matchup histórico, ' +
-  'vantagem de campo e momentum. Seja direto, use dados concretos. Responda em português brasileiro.';
+  'Busque informações em tempo real — notícias, estatísticas, lesões, transações. ' +
+  'Seja direto, use dados concretos. Responda em português brasileiro.';
 
 function switchTab(name, el) {
   document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
@@ -240,18 +174,15 @@ function switchTab(name, el) {
   el.classList.add('active');
   document.getElementById('panel-' + name).classList.add('active');
 }
-
 function addMsg(id, role, html) {
   var c = document.getElementById(id);
   var d = document.createElement('div');
   d.className = 'msg ' + role;
-  d.innerHTML = '<div class="av">' + (role==='agent'?'🦅':'👤') + '</div>' +
-    '<div class="bub"><p>' + html + '</p></div>';
+  d.innerHTML = '<div class="av">'+(role==='agent'?'🦅':'👤')+'</div><div class="bub"><p>'+html+'</p></div>';
   c.appendChild(d);
   c.scrollTop = c.scrollHeight;
   return d;
 }
-
 function addTyping(id) {
   var c = document.getElementById(id);
   var d = document.createElement('div');
@@ -261,26 +192,16 @@ function addTyping(id) {
   c.scrollTop = c.scrollHeight;
   return d;
 }
-
 function fmt(t) {
-  return t
-    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
-    .replace(/\n\n/g,'</p><p>')
-    .replace(/\n- /g,'<br>• ')
-    .replace(/\n(\d+)\. /g,'<br>$1. ');
+  return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n\n/g,'</p><p>').replace(/\n- /g,'<br>• ');
 }
-
 async function ask(question, msgsId, btnId) {
   if (btnId) document.getElementById(btnId).disabled = true;
   var t = addTyping(msgsId);
   try {
     var res = await fetch('/api/chat', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-'anthropic-version': '2023-06-01',
-        'anthropic-beta': 'web-search-2025-03-05'
-      },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 1024,
@@ -297,15 +218,10 @@ async function ask(question, msgsId, btnId) {
     addMsg(msgsId, 'agent', fmt(reply || 'Sem resposta, tente novamente.'));
   } catch(e) {
     t.remove();
-    addMsg(msgsId, 'agent',
-      '🚫 <strong>Erro de CORS</strong> — seu browser bloqueou a chamada.<br><br>' +
-      'Solução: abra este arquivo num servidor local. No terminal da pasta do arquivo:<br>' +
-      '<em>python -m http.server 8080</em><br>Depois acesse: <em>localhost:8080</em>');
+    addMsg(msgsId, 'agent', '⚠️ Erro de conexão: ' + e.message);
   }
   if (btnId) document.getElementById(btnId).disabled = false;
 }
-
-// Chat
 function askChat(q) { document.getElementById('chat-inp').value=q; sendChat(); }
 function sendChat() {
   var inp = document.getElementById('chat-inp');
@@ -314,23 +230,17 @@ function sendChat() {
   inp.value=''; inp.style.height='auto';
   ask(q, 'chat-msgs', 'chat-btn');
 }
-
-// Notícias
 function fetchNews() {
-  ask('Busque as 5 últimas notícias sobre Atlanta Falcons NFL hoje. Título em negrito, fonte e resumo em 2 linhas para cada uma.', 'news-msgs', null);
+  ask('Busque as 5 últimas notícias sobre Atlanta Falcons NFL hoje. Título em negrito, fonte e resumo em 2 linhas.', 'news-msgs', null);
 }
-
-// Prognóstico
 function askProg(opp) { document.getElementById('prog-inp').value=opp; sendProg(); }
 function sendProg() {
   var inp = document.getElementById('prog-inp');
   var opp = inp.value.trim(); if(!opp) return;
   addMsg('prog-msgs','user','Prognóstico: Falcons vs '+opp);
   inp.value='';
-  ask('Prognóstico completo Atlanta Falcons vs '+opp+'. Inclua: matchup, pontos fortes e fracos, fatores decisivos, previsão de placar e recomendação.','prog-msgs',null);
+  ask('Prognóstico completo Atlanta Falcons vs '+opp+'. Matchup, pontos fortes e fracos, fatores decisivos, previsão de placar.','prog-msgs',null);
 }
-
-// Análise
 function askAnalysis(q) { addMsg('analysis-msgs','user',q); ask(q,'analysis-msgs',null); }
 function sendAnalysis() {
   var inp = document.getElementById('analysis-inp');
@@ -339,8 +249,6 @@ function sendAnalysis() {
   inp.value=''; inp.style.height='auto';
   ask(q,'analysis-msgs',null);
 }
-
-// Loading
 window.addEventListener('load', function(){
   setTimeout(function(){
     var l=document.getElementById('loader');
